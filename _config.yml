@@ -1,10 +1,7 @@
 title: AI Coding Blog
-email: your-email@example.com
-description: A simple blog powered by Jekyll and GitHub Pages.
+description: A blog powered by Jekyll and GitHub Pages.
 baseurl: ""
 url: "https://aicoding.host"
-
-theme: minima
 
 collections:
   posts:
@@ -14,6 +11,5 @@ collections:
 markdown: kramdown
 kramdown:
   input: GFM
-  syntax_highlighter: rouge
 
 timezone: Asia/Shanghai
