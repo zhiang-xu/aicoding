@@ -10,48 +10,18 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v4
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        with:
-          path: vendor/bundle
-          key: `${{ runner.os }}-jekyll-${{ hashFiles('Gemfile.lock') }}
-          restore-keys: `${{ runner.os }}-jekyll-
-      - name: Install dependencies
-        run: bundle install
-      - name: Debug environment
-        run: |
-          echo "=== _posts files ==="
-          ls -la _posts/
-          echo "=== _config.yml ==="
-          cat _config.yml
-          echo "=== Gemfile ==="
-          cat Gemfile
-      - name: Build
-        run: bundle exec jekyll build --trace --baseurl ''
-        env:
-          JEKYLL_ENV: production
-      - name: Debug output
-        run: |
-          echo "=== _site contents ==="
-          find _site/ -type f
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+          bundler-cache: true
+      - run: bundle exec jekyll build --baseurl ''
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: _site/
 
@@ -60,8 +30,5 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: `${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - uses: actions/deploy-pages@v4
