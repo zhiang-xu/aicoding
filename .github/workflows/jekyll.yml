@@ -30,14 +30,26 @@ jobs:
         uses: actions/cache@v4
         with:
           path: vendor/bundle
-          key: ${{ runner.os }}-jekyll-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: ${{ runner.os }}-jekyll-
+          key: `${{ runner.os }}-jekyll-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: `${{ runner.os }}-jekyll-
       - name: Install dependencies
         run: bundle install
+      - name: Debug environment
+        run: |
+          echo "=== _posts files ==="
+          ls -la _posts/
+          echo "=== _config.yml ==="
+          cat _config.yml
+          echo "=== Gemfile ==="
+          cat Gemfile
       - name: Build
-        run: bundle exec jekyll build --baseurl ''
+        run: bundle exec jekyll build --trace --baseurl ''
         env:
           JEKYLL_ENV: production
+      - name: Debug output
+        run: |
+          echo "=== _site contents ==="
+          find _site/ -type f
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -48,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: `${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
