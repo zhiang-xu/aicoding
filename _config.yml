@@ -1,0 +1,27 @@
+title: AI Coding Blog
+email: your-email@example.com
+description: >-
+  A simple blog powered by Jekyll and GitHub Pages.
+baseurl: ""
+url: "https://aicoding.host"
+github_username: zhiang-xu
+
+theme: minima
+minima:
+  social_links:
+    github: zhiang-xu
+
+collections:
+  posts:
+    title: "Posts"
+    output: true
+    permalink: /posts/:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+permalink: /posts/:title/
+
+timezone: Asia/Shanghai
