@@ -1,26 +1,10 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{{ page.title | escape }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-</head>
-<body>
+---
+layout: default
+---
+<article>
   <header>
-    <h1><a href="{{ '/' | relative_url }}">{{ site.title | escape }}</a></h1>
-    {% if site.description %}
-    <p>{{ site.description }}</p>
-    {% endif %}
+    <h2>{{ page.title | escape }}</h2>
+    <time>{{ page.date | date: "%Y-%m-%d" }}</time>
   </header>
-  <main>
-    <article>
-      <header>
-        <h2>{{ page.title | escape }}</h2>
-        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
-      </header>
-      {{ content }}
-    </article>
-  </main>
-</body>
-</html>
+  {{ content }}
+</article>
