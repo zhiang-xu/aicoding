@@ -1,5 +1,4 @@
 ---
-# debug: trigger rebuild
 layout: home
 title: AI Learning Blog
 ---
