@@ -1,9 +1,1 @@
----
-layout: default
----
-DEBUG: site.posts count = {{ site.posts | size }}
-DEBUG: site.collections = {{ site.collections | inspect }}
-{% for post in site.posts %}
-POST: {{ post.title }} - {{ post.url }}
-{% endfor %}
-{{ content }}
+---\nlayout: default\n---\n\n{{ content }}\n
