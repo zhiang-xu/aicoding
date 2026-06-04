@@ -1,14 +1,18 @@
-<section class="hero">
-  <h2>{{ page.title | escape }}</h2>
-  <p class="subtitle">Welcome to my blog</p>
-</section>
+---
+layout: default
+---
 
-<section class="posts-list">
-  <h3>文章列表</h3>
-  {% for post in site.posts %}
-  <article>
-    <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%Y-%m-%d" }}</time>
-    <h4><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h4>
-  </article>
-  {% endfor %}
-</section>
+<div class="container">
+  <h1>{{ page.title | escape }}</h1>
+  <p class="subtitle">Welcome to my blog</p>
+
+  <div class="posts-list">
+    <h2>文章列表</h2>
+    {% for post in site.posts %}
+    <article class="post-item">
+      <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+    </article>
+    {% endfor %}
+  </div>
+</div>
