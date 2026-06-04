@@ -8,6 +8,13 @@ collections:
     output: true
     permalink: /posts/:title/
 
+defaults:
+  - scope:
+      path: "_posts"
+      type: posts
+    values:
+      layout: post
+
 markdown: kramdown
 kramdown:
   input: GFM
