@@ -1,12 +1,14 @@
----\nlayout: default\n---\n---
-layout: default
----
-
 <section class="hero">
   <h2>{{ page.title | escape }}</h2>
   <p class="subtitle">Welcome to my blog</p>
 </section>
 
 <section class="posts-list">
-  {{ content }}
+  <h3>文章列表</h3>
+  {% for post in site.posts %}
+  <article>
+    <time>{{ post.date | date: "%Y-%m-%d" }}</time>
+    <h4><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h4>
+  </article>
+  {% endfor %}
 </section>
