@@ -1,6 +1,6 @@
 ---
 layout: home
-title: AI Coding Blog
+title: AI Learning Blog
 ---
 
 ## 文章列表
