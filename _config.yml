@@ -1,7 +1,7 @@
 title: AI Coding Blog
 description: A blog powered by Jekyll and GitHub Pages.
 baseurl: ""
-url: "https://aicoding.host"
+url: "https://gh.ailearning.host"
 
 collections:
   posts:
