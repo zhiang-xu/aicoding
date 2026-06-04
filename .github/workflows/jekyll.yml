@@ -19,8 +19,8 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
-      - run: gem install jekyll kramdown-parser-gfm webrick
-      - run: jekyll build --baseurl ''
+      - run: bundle install
+      - run: bundle exec jekyll build --baseurl ''
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site/
